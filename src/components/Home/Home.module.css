@@ -1,0 +1,17 @@
+.intro {
+    background-color: #4a5050;
+    color: white;
+    width: 50%;
+    margin: 50px auto;
+    padding: 5px 20px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.cart-list {
+    background-color: white;
+    width: 75%;
+    margin: auto;
+    padding: 10px;
+}
+
