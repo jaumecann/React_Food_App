@@ -1,0 +1,10 @@
+.item {
+    border-bottom: solid 1px grey;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.info_block p, .info_block h3 {
+    margin: 0;
+}

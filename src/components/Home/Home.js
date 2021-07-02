@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../UI/Card.js'
 import classes from './Home.module.css'
+import ItemMain from './ItemMain.js';
 
 const MENU_ITEMS = [
   {
@@ -34,9 +35,14 @@ const Home = () => {
         <p>All our meal are cooked with dubious quality ingredients, just-in-time and they are a real treasure</p>
         </Card>
 
+       
         <Card className={classes['cart-list']}>
-        sss
+        {MENU_ITEMS.map(item_raw => 
+        <ItemMain item={item_raw}/>
+        )}
         </Card>  
+               
+        
       </div>  
     )
 }
