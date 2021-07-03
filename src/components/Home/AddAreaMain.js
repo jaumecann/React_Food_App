@@ -1,10 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Button from '../UI/Button';
+import SelectAmount from '../UI/SelectAmount';
 
-const AddAreaMain = () => {
+const AddAreaMain = (props) => {
+
+const [amount, setAmount] = useState(0);
+
+const amountInput = value => setAmount(value);
+
+const addClickHandler = () => {
+console.log(amount)
+}
+
     return (
         <div>
-            <div>Amount</div>
-            <div>Button</div>
+            <SelectAmount amount={amountInput}>Amount </SelectAmount>
+            <Button onClick={addClickHandler}>+Add</Button>
         </div>
     )
 }

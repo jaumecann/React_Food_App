@@ -1,0 +1,9 @@
+.amountbox {
+    width: 35px;
+    border: solid 1px #808080;
+}
+
+.label {
+    margin-right: 15px;
+    font-size: 12px;
+}

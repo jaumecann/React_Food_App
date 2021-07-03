@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import Card from '../UI/Card.js'
 import classes from './Home.module.css'
 import ItemMain from './ItemMain.js';
@@ -26,7 +26,21 @@ const MENU_ITEMS = [
   }
 ]
 
+const menu = MENU_ITEMS.map(i => addId(i))
+
+function addId(i) {
+  i.id = Math.random().toString(36).slice(2);
+  return i;
+}
+
+const cartReducer = (state, action) =>{
+
+}
+
 const Home = () => {
+
+  const [cartState, dispatchCart] = useReducer(cartReducer, {cart: {}})
+
     return (
       <div>
         <Card className={classes.intro}>
@@ -37,8 +51,8 @@ const Home = () => {
 
        
         <Card className={classes['cart-list']}>
-        {MENU_ITEMS.map(item_raw => 
-        <ItemMain item={item_raw}/>
+        {menu.map(item_raw => 
+        <ItemMain key={item_raw.id} item={item_raw} onNewItem={dispatchCart}/>
         )}
         </Card>  
                
