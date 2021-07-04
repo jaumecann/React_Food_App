@@ -1,15 +1,18 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
+import cartItemContext from '../../context/cartitem-context';
 import Button from '../UI/Button';
 import SelectAmount from '../UI/SelectAmount';
 
 const AddAreaMain = (props) => {
 
-const [amount, setAmount] = useState(0);
+const [amount, setAmount] = useState(1);
 
 const amountInput = value => setAmount(value);
 
+const cartCtx = useContext(cartItemContext)
+
 const addClickHandler = () => {
-console.log(amount)
+cartCtx.onAdd(props.item, amount)
 }
 
     return (
