@@ -5,7 +5,7 @@ import SelectAmount from '../UI/SelectAmount';
 
 const AddAreaMain = (props) => {
 
-const [amount, setAmount] = useState(1);
+const [amount, setAmount] = useState("1");
 
 const amountInput = value => setAmount(value);
 
