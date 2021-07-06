@@ -1,13 +1,28 @@
 import classes from './CartModal.module.css'
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import Card from './UI/Card';
+import Button from './UI/Button';
+import cartItemContext from '../context/cartitem-context';
 
 
 const ModalContent = (props) => {
+
+    const cartCtx = useContext(cartItemContext);
+
+    const [items, setItems] = useState();
+
+    useEffect(()=>{
+
+        setItems(cartCtx.shoppingCart);
+        // console.log(items[0].Name);
+        
+        },[cartCtx, items]);
+
     return (
-        <Card>
-            Modal Content
+        <Card className={classes.modalCard}>
+            <p>Hola</p>
+            <Button onClick={props.onClose}>Close</Button>
         </Card>
     )
 }
@@ -19,7 +34,7 @@ const ModalBackground = () => {
 }
 
 
-const CartModal = () => {    
+const CartModal = (props) => {    
 return (
     <React.Fragment>
         {ReactDOM.createPortal(
@@ -27,7 +42,7 @@ return (
         document.getElementById('background-root')
         )}
         {ReactDOM.createPortal(
-        <ModalContent/>,
+        <ModalContent onClose={props.onClose}/>,
         document.getElementById('modal-root')
         )}
     </React.Fragment>

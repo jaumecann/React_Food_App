@@ -33,13 +33,10 @@ function addId(i) {
   return i;
 }
 
-const cartReducer = (state, action) =>{
-
-}
 
 const Home = () => {
 
-  const [cartState, dispatchCart] = useReducer(cartReducer, {cart: {}})
+
 
     return (
       <div>
@@ -52,7 +49,7 @@ const Home = () => {
        
         <Card className={classes['cart-list']}>
         {menu.map(item_raw => 
-        <ItemMain key={item_raw.id} item={item_raw} onNewItem={dispatchCart}/>
+        <ItemMain key={item_raw.id} item={item_raw}/>
         )}
         </Card>  
                
