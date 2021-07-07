@@ -10,18 +10,18 @@ const ModalContent = (props) => {
 
     const cartCtx = useContext(cartItemContext);
 
-    const [items, setItems] = useState();
+    const [items, setItems] = useState([]);
 
     useEffect(()=>{
 
-        setItems(cartCtx.shoppingCart);
-        // console.log(items[0].Name);
+        setItems(cartCtx.shoppingCart)
+        console.log(items.length)
         
         },[cartCtx, items]);
 
     return (
         <Card className={classes.modalCard}>
-            <p>Hola</p>
+            {items.length !== 0 && items[0].Name}
             <Button onClick={props.onClose}>Close</Button>
         </Card>
     )
