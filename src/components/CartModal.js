@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import Card from './UI/Card';
 import Button from './UI/Button';
 import cartItemContext from '../context/cartitem-context';
+import ItemsModal from './ItemsModal';
 
 
 const ModalContent = (props) => {
@@ -15,13 +16,19 @@ const ModalContent = (props) => {
     useEffect(()=>{
 
         setItems(cartCtx.shoppingCart)
-        console.log(items.length)
         
         },[cartCtx, items]);
 
     return (
         <Card className={classes.modalCard}>
-            {items.length !== 0 && items[0].Name}
+            {items.length !== 0 && 
+                items.map(i => 
+                <ItemsModal 
+                    key={i.id}
+                    name={i.Name}
+                    price={i.Price}
+                    amount={i.quantity}
+                /> )}
             <Button onClick={props.onClose}>Close</Button>
         </Card>
     )

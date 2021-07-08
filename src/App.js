@@ -13,7 +13,17 @@ const addHandler = (item, amount) => {
 item.quantity = amount
 
 setCart((prevState) => {
- return [item, ...prevState]
+ const newId = item.id 
+ const findIndex = prevState.indexOf(prevState.find(i =>i.id === newId));
+ 
+ if (findIndex === -1){
+  return [item, ...prevState]
+ } else {
+   prevState[findIndex].quantity = prevState[findIndex].quantity + item.quantity;
+   console.log(prevState);
+   return prevState
+ }
+ 
 })
 }
 

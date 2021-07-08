@@ -1,0 +1,32 @@
+.item_container{
+    margin: auto 10px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 2px brown;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.item_container p {
+    margin: 10px 0;
+}
+
+.item_data{
+    width: 30%;
+    font-weight: bolder;
+}
+
+.item_numbers{
+    display: flex;
+    justify-content: space-between;
+}
+
+.item_numbers p:first-child{
+    font-size: 15px;
+    color: brown;
+}
+
+.amount{
+    border: solid 1px grey;
+    border-radius: 5px;
+    padding: 0 5px;
+}
