@@ -10,17 +10,23 @@ const [cart, setCart] = useState([]);
 const [isCartOpen, setIsCartOpen] = useState(false);
 
 const addHandler = (item, amount) => {
-item.quantity = amount
 
-setCart((prevState) => {
- const newId = item.id 
- const findIndex = prevState.indexOf(prevState.find(i =>i.id === newId));
+  // console.log(item.quantity)
+  // console.log(amount)
+
+item.quantity === undefined ? item.quantity = parseInt(amount) : item.quantity = item.quantity + parseInt(amount)
+
+
+
+  setCart((prevState) => {
+  const newId = item.id 
+  const findIndex = prevState.indexOf(prevState.find(i =>i.id === newId));
  
  if (findIndex === -1){
   return [item, ...prevState]
  } else {
-   prevState[findIndex].quantity = prevState[findIndex].quantity + item.quantity;
-   console.log(prevState);
+   prevState[findIndex].quantity = item.quantity;
+  //  console.log(prevState);
    return prevState
  }
  
