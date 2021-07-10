@@ -12,6 +12,7 @@ const ModalContent = (props) => {
     const cartCtx = useContext(cartItemContext);
 
     const [items, setItems] = useState([]);
+    const [totals, setTotals] = useState(0);
 
     useEffect(()=>{
 
@@ -19,9 +20,10 @@ const ModalContent = (props) => {
         
         },[cartCtx, items]);
 
-    const onPriceChange = (data) => {
-            console.log(data);
-            console.log(items)
+    const onPriceChange = () => {
+            // console.log(data);
+            const recap = items.reduce((a,b) => a + (b.Price * b.quantity), 0)
+            setTotals(recap)
         }
 
 
@@ -38,10 +40,10 @@ const ModalContent = (props) => {
                     total={onPriceChange}
                 /> )}
             <div className={classes.totals}>
-                <p>Total Amount</p><p>{}</p>
+                <p>Total Amount</p><p>{totals}</p>
             </div>
             <Button onClick={props.onOrder}>Order</Button>
-            <Button className={classes.close_but}onClick={props.onClose}>Close</Button>
+            <Button className={classes.close_but} onClick={props.onClose}>Close</Button>
            
         </Card>
     )

@@ -23,7 +23,7 @@ const ItemsModal = (props) => {
         cartCtx.onAdd(props.object, 1);
         // dispatchTotals({type: 'ADD'});
         setTotals(props.object.quantity * props.price)
-        props.total(totals)
+        props.total()
     };
 
     const removeHandler = () => {
@@ -33,7 +33,7 @@ const ItemsModal = (props) => {
         let test = props.object.quantity * props.price
         console.log(test)
         setTotals(props.object.quantity * props.price)
-        props.total(totals)
+        props.total()
     }
 
     const cartCtx = useContext(cartItemContext)
