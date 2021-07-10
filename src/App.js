@@ -27,7 +27,6 @@ item.quantity === undefined ? item.quantity = parseInt(amount) : item.quantity =
   return [item, ...prevState]
  } else {
    newState[findIndex].quantity = item.quantity;
-  //  console.log(prevState);
    return [...newState]
  }
  

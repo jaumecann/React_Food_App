@@ -19,17 +19,30 @@ const ModalContent = (props) => {
         
         },[cartCtx, items]);
 
+    const onPriceChange = (data) => {
+            console.log(data);
+            console.log(items)
+        }
+
+
     return (
         <Card className={classes.modalCard}>
             {items.length !== 0 && 
-                items.map(i => 
+                items.map(i => i.quantity > 0 &&
                 <ItemsModal 
                     key={i.id}
                     name={i.Name}
                     price={i.Price}
                     amount={i.quantity}
+                    object={i}
+                    total={onPriceChange}
                 /> )}
-            <Button onClick={props.onClose}>Close</Button>
+            <div className={classes.totals}>
+                <p>Total Amount</p><p>{}</p>
+            </div>
+            <Button onClick={props.onOrder}>Order</Button>
+            <Button className={classes.close_but}onClick={props.onClose}>Close</Button>
+           
         </Card>
     )
 }

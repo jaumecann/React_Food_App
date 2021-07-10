@@ -16,3 +16,20 @@
     left: 30%;
     width: 40%;
   }
+
+  .modalCard button {
+    float: right;
+    margin: 10px 5px;
+  }
+
+  .close_but {
+    background-color:white;
+    color: black
+  }
+
+  .totals {
+    display:flex;
+    justify-content:space-between;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 0 15px;
+  }

@@ -10,7 +10,6 @@ const [cartCount, setCartCount] = useState(0);
 
 useEffect(()=>{
 
-console.log(cartCtx.shoppingCart)
 const addedUpItems = cartCtx.shoppingCart.reduce((a,b) => a + parseInt(b.quantity), 0);
 setCartCount(addedUpItems);
 
