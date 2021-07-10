@@ -21,13 +21,14 @@ item.quantity === undefined ? item.quantity = parseInt(amount) : item.quantity =
   setCart((prevState) => {
   const newId = item.id 
   const findIndex = prevState.indexOf(prevState.find(i =>i.id === newId));
+  const newState = prevState
  
  if (findIndex === -1){
   return [item, ...prevState]
  } else {
-   prevState[findIndex].quantity = item.quantity;
+   newState[findIndex].quantity = item.quantity;
   //  console.log(prevState);
-   return prevState
+   return [...newState]
  }
  
 })
